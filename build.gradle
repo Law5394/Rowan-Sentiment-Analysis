@@ -1,7 +1,6 @@
 plugins {
 	id 'org.springframework.boot' version '2.1.4.RELEASE'
 	id 'java'
-	id "io.freefair.lombok" version "3.1.4"
 }
 
 apply plugin: 'io.spring.dependency-management'
@@ -27,8 +26,6 @@ dependencies {
 	runtimeOnly 'mysql:mysql-connector-java'
 	implementation 'org.twitter4j:twitter4j:4.0.7'
 
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

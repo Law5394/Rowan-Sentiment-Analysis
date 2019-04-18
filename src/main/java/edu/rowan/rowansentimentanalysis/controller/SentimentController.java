@@ -3,7 +3,6 @@ package edu.rowan.rowansentimentanalysis.controller;
 import edu.rowan.rowansentimentanalysis.model.AnalyzedTweet;
 import edu.rowan.rowansentimentanalysis.repository.SentimentRepository;
 import edu.rowan.rowansentimentanalysis.service.ScheduledProcessingService;
-import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +12,6 @@ import java.util.List;
  * The Controller that provides our RESt api's core services
  *
  * */
-@Log
 @RestController
 public class SentimentController {
 

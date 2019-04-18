@@ -1,6 +1,5 @@
 package edu.rowan.rowansentimentanalysis.model;
 
-import lombok.Data;
 import org.springframework.core.io.UrlResource;
 
 import java.util.Date;
@@ -11,7 +10,6 @@ import java.util.Date;
  * modify this to match the json objects and deserialize to it
  * @Data generates getters/setters
  * */
-@Data
 public class TweetData {
 
   public Date timePosted;

@@ -1,7 +1,6 @@
 package edu.rowan.rowansentimentanalysis.controller;
 
 import edu.rowan.rowansentimentanalysis.service.ScheduledProcessingService;
-import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,7 +13,6 @@ import java.util.Date;
  * @Log: Provides access to log object
  * so can call log.info() to print log text
  * */
-@Log
 @RestController
 public class UtilController {
 
@@ -28,7 +26,6 @@ public class UtilController {
   // test if the api is up
   @RequestMapping(value = "/util/test", method = RequestMethod.GET, produces = "application/json")
   public String testApi() {
-    log.info("/util/test received request");
     return "up";
   }
 
@@ -36,7 +33,6 @@ public class UtilController {
   // TODO implement this
   @RequestMapping(value = "/util/lastUpdate", method = RequestMethod.GET, produces = "application/json")
   public Date lastUpdated() {
-    log.info("/util/lastUpdate received request");
     // this.processingService.getTimeLastUpdated();
     return null;
   }

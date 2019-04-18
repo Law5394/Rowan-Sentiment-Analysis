@@ -1,6 +1,5 @@
 package edu.rowan.rowansentimentanalysis.controller;
 
-import lombok.extern.java.Log;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
  * Should provide the resources that
  * makeup the sites frontend, html,css,jss, etc
  * */
-@Log
 @RestController
 public class FrontendController {
 
