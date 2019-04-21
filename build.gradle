@@ -26,6 +26,7 @@ dependencies {
 	runtimeOnly 'mysql:mysql-connector-java'
 	implementation 'org.twitter4j:twitter4j:4.0.7'
 
+	implementation 'com.amazonaws:aws-java-sdk-comprehend:1.11.538'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
