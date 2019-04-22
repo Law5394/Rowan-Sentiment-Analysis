@@ -3,6 +3,7 @@ package edu.rowan.rowansentimentanalysis.service;
 import edu.rowan.rowansentimentanalysis.repository.SentimentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -10,18 +11,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class ScheduledProcessingService {
 
+    @Autowired
     private DataProviderService dataProviderService;
-    private AnalysisService analysisService;
-    private SentimentRepository sentimentRepository;
 
     @Autowired
-    public ScheduledProcessingService(DataProviderService dataProviderService,
-                                      AnalysisService analysisService,
-                                      SentimentRepository sentimentRepository) {
-        this.dataProviderService = dataProviderService;
-        this.analysisService = analysisService;
-        this.sentimentRepository = sentimentRepository;
-    }
+    @Qualifier("aws")
+    private SentimentAnalysisService sentimentAnalysisService;
+
+    @Autowired
+    private SentimentRepository sentimentRepository;
 
     // how often the service will update
     // value comes from src/main/resources/application.properties sps.delay

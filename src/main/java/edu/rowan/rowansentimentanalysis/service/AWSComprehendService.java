@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 /*
@@ -23,14 +24,14 @@ import java.util.stream.Collectors;
  * to conduct sentiment analysis on the data
  * */
 
-@Service
-public class AnalysisService {
+@Service(value = "aws")
+public class AWSComprehendService implements SentimentAnalysisService {
 
     protected AmazonComprehend comprehendClient;
 
     @Autowired
-    public AnalysisService(@Value("${aws.key.id}") String awsAccessID,
-                           @Value("${aws.key.secret}") String awsSecret) {
+    public AWSComprehendService(@Value("${aws.key.id}") String awsAccessID,
+                                @Value("${aws.key.secret}") String awsSecret) {
 
         BasicAWSCredentials credentials = new BasicAWSCredentials(awsAccessID, awsSecret);
 
@@ -39,20 +40,23 @@ public class AnalysisService {
                 .build();
     }
 
-    public List<Sentiment> analyzeSentiments(final LanguageCode langCode,
+    private LanguageCode toAWSLangCode(final Locale langCode) {
+        return LanguageCode.fromValue(langCode.toLanguageTag());
+    }
+
+    public List<Sentiment> analyzeSentiments(final Locale langCode,
                                              final String... text) {
 
         return (text.length == 1) ?
-                Arrays.asList(analyzeSingleSentiment(text[0], langCode)) :
-                batchAnalyzeSentiment(text, langCode);
-
+                Arrays.asList(analyzeSingleSentiment(langCode, text[0])) :
+                batchAnalyzeSentiment(text, toAWSLangCode(langCode));
     }
 
-    public Sentiment analyzeSingleSentiment(final String text,
-                                            final LanguageCode langCode) {
+    public Sentiment analyzeSingleSentiment(final Locale langCode,
+                                            final String text) {
 
         DetectSentimentResult result = this.comprehendClient.detectSentiment(new DetectSentimentRequest()
-                .withLanguageCode(langCode)
+                .withLanguageCode(toAWSLangCode(langCode))
                 .withText(text));
 
         return new Sentiment(result.getSentiment(), result.getSentimentScore());

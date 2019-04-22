@@ -15,6 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -26,14 +27,14 @@ import static org.mockito.Mockito.mock;
  * consumes 6 units of text worth of api req per run
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {AnalysisService.class})
-public class AnalysisServiceTest {
+@SpringBootTest(classes = {AWSComprehendService.class})
+public class AWSComprehendServiceTest {
 
     private static final String positiveString = "I am so happy";
     private static final String negativeString = "I am so sad";
 
     @Autowired
-    private AnalysisService service;
+    private AWSComprehendService service;
 
     private Collection<Sentiment> positiveSingleResultList;
     private Collection<Sentiment> negativeSingleResultList;
@@ -44,17 +45,17 @@ public class AnalysisServiceTest {
     public void init() {
 
         this.positiveSingleResultList = this.service.analyzeSentiments(
-                LanguageCode.En,
+                Locale.ENGLISH,
                 positiveString
         );
 
         this.negativeSingleResultList = this.service.analyzeSentiments(
-                LanguageCode.En,
+                Locale.ENGLISH,
                 negativeString
         );
 
         this.multipleResultList = this.service.analyzeSentiments(
-                LanguageCode.En,
+                Locale.ENGLISH,
                 positiveString, negativeString, positiveString, negativeString
         );
 
