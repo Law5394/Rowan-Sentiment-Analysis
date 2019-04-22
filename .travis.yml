@@ -1,0 +1,12 @@
+language: java
+os:
+  - linux
+env:
+  - SPRING_PROFILES_ACTIVE=ci
+install: true
+jdk:
+  - openjdk8
+services:
+  - mysql
+script:
+  - "./gradlew build -x test"
