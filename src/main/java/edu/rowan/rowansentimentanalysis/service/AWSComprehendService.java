@@ -9,6 +9,8 @@ import com.amazonaws.services.comprehend.model.DetectSentimentRequest;
 import com.amazonaws.services.comprehend.model.DetectSentimentResult;
 import com.amazonaws.services.comprehend.model.LanguageCode;
 import edu.rowan.rowansentimentanalysis.model.Sentiment;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -26,6 +28,7 @@ import java.util.stream.Collectors;
 
 @Service(value = "aws")
 public class AWSComprehendService implements SentimentAnalysisService {
+    private static final Logger log = LoggerFactory.getLogger(AWSComprehendService.class);
 
     protected AmazonComprehend comprehendClient;
 
@@ -55,6 +58,8 @@ public class AWSComprehendService implements SentimentAnalysisService {
     public Sentiment analyzeSingleSentiment(final Locale langCode,
                                             final String text) {
 
+        log.info("Sending single sentiment analysis job to aws");
+
         DetectSentimentResult result = this.comprehendClient.detectSentiment(new DetectSentimentRequest()
                 .withLanguageCode(toAWSLangCode(langCode))
                 .withText(text));
@@ -64,6 +69,8 @@ public class AWSComprehendService implements SentimentAnalysisService {
 
     private List<Sentiment> batchAnalyzeSentiment(final String[] textList,
                                                   final LanguageCode langCode) {
+
+        log.info("Sending batch sentiment analysis job to aws");
 
         return this.comprehendClient.batchDetectSentiment(new BatchDetectSentimentRequest()
                 .withLanguageCode(langCode)

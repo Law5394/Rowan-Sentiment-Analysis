@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Date;
 
@@ -16,6 +18,7 @@ import java.util.Date;
 @RestController
 public class UtilController {
 
+  private static final Logger log = LoggerFactory.getLogger(UtilController.class);
   private ScheduledProcessingService processingService;
 
   @Autowired // Automatically gives UtilController a reference to dependencies
@@ -26,6 +29,7 @@ public class UtilController {
   // test if the api is up
   @RequestMapping(value = "/util/test", method = RequestMethod.GET, produces = "application/json")
   public String testApi() {
+    log.info("/util/test/ called");
     return "up";
   }
 
@@ -33,6 +37,7 @@ public class UtilController {
   // TODO implement this
   @RequestMapping(value = "/util/lastUpdate", method = RequestMethod.GET, produces = "application/json")
   public Date lastUpdated() {
+    log.info("/util/lastUpdate/ called");
     // this.processingService.getTimeLastUpdated();
     return null;
   }

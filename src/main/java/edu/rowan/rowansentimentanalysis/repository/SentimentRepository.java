@@ -1,6 +1,9 @@
 package edu.rowan.rowansentimentanalysis.repository;
 
+import edu.rowan.rowansentimentanalysis.controller.UtilController;
 import edu.rowan.rowansentimentanalysis.model.AnalyzedTweet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,14 +17,17 @@ import java.util.List;
 @Repository
 public class SentimentRepository {
 
-  // Todo prob need a bunch of more specific
-  // forms of this
-  public List<AnalyzedTweet> getAnalyzedTweets() {
-    return null;
-  }
+    private static final Logger log = LoggerFactory.getLogger(SentimentRepository.class);
 
-  // TODO implement this
-  public void storeTweets(AnalyzedTweet... tweets) {
+    // Todo prob need a bunch of more specific
+    // forms of this
+    public List<AnalyzedTweet> getAnalyzedTweets() {
+        log.info("Retrieving tweets from db");
+        return null;
+    }
 
-  }
+    // TODO implement this
+    public void storeTweets(AnalyzedTweet... tweets) {
+        log.info("Storing Tweets");
+    }
 }

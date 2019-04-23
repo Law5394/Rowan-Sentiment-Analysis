@@ -5,8 +5,12 @@ package edu.rowan.rowansentimentanalysis.model;
  * */
 
 import com.amazonaws.services.comprehend.model.SentimentScore;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Sentiment {
+
+    private static final Logger log = LoggerFactory.getLogger(Sentiment.class);
 
     enum SentimentKind {
         POSITIVE,
@@ -33,6 +37,7 @@ public class Sentiment {
             case "neutral":
                 return SentimentKind.NEUTRAL;
             default:
+            log.error("Was unable to determine sentiment kind");
                 return SentimentKind.UNKNOWN;
         }
     }
