@@ -2,7 +2,6 @@ package edu.rowan.rowansentimentanalysis.controller;
 
 import edu.rowan.rowansentimentanalysis.model.AnalyzedTweet;
 import edu.rowan.rowansentimentanalysis.repository.SentimentRepository;
-import edu.rowan.rowansentimentanalysis.service.ScheduledProcessingService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,17 +17,11 @@ import java.util.List;
 public class SentimentController {
 
     private static final Logger log = LoggerFactory.getLogger(SentimentRepository.class);
-    private ScheduledProcessingService processingService;
     private SentimentRepository sentimentRepository;
 
-    // not sure which way we should do this
-    // we can call Repository directly to get Data to serve request
-    // or we can call ScheduledProcessingService which will call the database
-    // or we can make an new Service all together to call the database;
     @Autowired
-    public SentimentController(ScheduledProcessingService processingService,
-                               SentimentRepository sentRepo) {
-        this.processingService = processingService;
+    public SentimentController(SentimentRepository sentRepo) {
+        log.debug("Sentiment Controller instantiated");
         this.sentimentRepository = sentRepo;
     }
 

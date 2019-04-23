@@ -1,6 +1,5 @@
 package edu.rowan.rowansentimentanalysis.controller;
 
-import edu.rowan.rowansentimentanalysis.service.ScheduledProcessingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,12 +18,6 @@ import java.util.Date;
 public class UtilController {
 
   private static final Logger log = LoggerFactory.getLogger(UtilController.class);
-  private ScheduledProcessingService processingService;
-
-  @Autowired // Automatically gives UtilController a reference to dependencies
-  public UtilController(ScheduledProcessingService processingService) {
-    this.processingService = processingService;
-  }
 
   // test if the api is up
   @RequestMapping(value = "/util/test", method = RequestMethod.GET, produces = "application/json")
