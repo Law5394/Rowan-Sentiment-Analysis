@@ -17,6 +17,7 @@
 - [Features](#features)
 - [API](#API)
 - [Build](#build)
+- [License](#license)
 
 ## Introduction
 [![Total Downloads](https://travis-ci.org/Law5394/Rowan-Sentiment-Analysis.svg?branch=master)](https://travis-ci.org/Law5394/Rowan-Sentiment-Analysis) 
@@ -44,4 +45,4 @@ through interactive visualizations.
 ## Build
 todo
 ## License
-todo
+This project is licensed under GNU General Public License version 3 (https://opensource.org/licenses/gpl-3.0.html)
