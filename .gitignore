@@ -1,5 +1,6 @@
 .gradle
 /build/
+*/build/
 !gradle/wrapper/gradle-wrapper.jar
 
 ### STS ###
@@ -26,3 +27,4 @@
 /.nb-gradle/
 
 src/*/resources/application.properties
+*/src/*/resources/application.properties

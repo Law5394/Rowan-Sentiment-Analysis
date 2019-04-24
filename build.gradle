@@ -1,42 +1,5 @@
-plugins {
-    id 'org.springframework.boot' version '2.1.4.RELEASE'
-    id 'java'
-}
-
-apply plugin: 'io.spring.dependency-management'
-
-group = 'edu.rowan'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
-
-task checkProps {
-    doFirst {
-        String home = System.getenv('SPRING_PROFILES_ACTIVE');
-
-        if (home == null &&
-                !new File("src/main/resources/application.properties").exists()) {
-
-            throw new GradleException("application.properties does not exist")
-        }
+allprojects {
+    repositories {
+        mavenCentral()
     }
-}
-
-bootRun.dependsOn(checkProps)
-build.dependsOn(checkProps)
-test.dependsOn(checkProps)
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-logging'
-    runtimeOnly 'mysql:mysql-connector-java'
-    implementation 'org.twitter4j:twitter4j:4.0.7'
-
-    implementation 'com.amazonaws:aws-java-sdk-comprehend:1.11.538'
-
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
