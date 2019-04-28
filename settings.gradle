@@ -4,4 +4,4 @@ pluginManagement {
 	}
 }
 rootProject.name = 'rowan-sentiment-analysis '
-include 'backend'
+include 'server'

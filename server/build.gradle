@@ -14,7 +14,7 @@ task checkProps {
         String home = System.getenv('SPRING_PROFILES_ACTIVE');
 
         if (home == null &&
-                !new File("backend/src/main/resources/application.properties").exists()) {
+                !new File("server/src/main/resources/application.properties").exists()) {
 
             throw new GradleException("application.properties does not exist")
         }
