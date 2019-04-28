@@ -1,0 +1,16 @@
+<ivy-module version="2.0" xmlns:e="http://ant.apache.org/ivy/extra" xmlns:m="http://ant.apache.org/ivy/maven">
+  <info organisation="pypi" module="tweepy" revision="3.7.0" />
+  <configurations>
+    <conf name="default" description="auto generated configuration for default" />
+    <conf name="source" description="auto generated configuration for source" extends="default" />
+  </configurations>
+  <publications>
+    <artifact name="tweepy" ext="tar.gz" conf="default" type="tar.gz" />
+  </publications>
+  <dependencies defaultconfmapping="*->default">
+    <dependency org="pypi" name="requests" rev="2.11.1" conf="default" />
+    <dependency org="pypi" name="requests-oauthlib" rev="0.7.0" conf="default" />
+    <dependency org="pypi" name="six" rev="1.10.0" conf="default" />
+    <dependency org="pypi" name="PySocks" rev="1.5.7" conf="default" />
+  </dependencies>
+</ivy-module>

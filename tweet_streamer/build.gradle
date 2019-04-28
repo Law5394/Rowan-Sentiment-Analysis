@@ -1,0 +1,48 @@
+plugins {
+    id "com.linkedin.python-cli" version "0.9.9"
+}
+
+dependencies {
+    python 'pypi:tweepy:3.7.0'
+    python 'pypi:requests:2.9.1'
+}
+
+version = '0.0.1'
+
+task placeProps {
+	doLast {
+        new File("$projectDir/src/tweet_streamer/props.py").text = """
+CONSUMER_KEY = \"$CONSUMER_KEY\"
+CONSUMER_SECRET = \"$CONSUMER_SECRET\"
+ACCESS_TOKEN = \"$ACCESS_TOKEN\"
+ACCESS_SECRET = \"$ACCESS_SECRET\"
+LAMBDA_ENDPOINT = \"$LAMBDA_ENDPOINT\"
+"""
+	}
+    }
+
+task checkProps {
+        doFirst {
+          if (!new File("tweet_streamer/gradle.properties").exists()) {
+            println "gradle.properties does not exist"
+          }
+      }
+    }
+
+build.dependsOn(checkProps)
+build.dependsOn(placeProps)
+
+repositories {
+    pyGradlePyPi()
+
+    def repoLocation = projectDir.toString() + '/repository/';
+
+    ivy {
+        name 'pypi-local'
+        url repoLocation
+        layout 'pattern', {
+            artifact '[organisation]/[module]/[revision]/[artifact]-[revision](-[classifier]).[ext]'
+            ivy '[organisation]/[module]/[revision]/[module]-[revision].ivy'
+        }
+    }
+}
