@@ -44,7 +44,7 @@ through interactive visualizations.
 ## API
 
 ## Build
-* Requies JDK8
+* Requires JDK8
 
 1. Run the following via the terminal
 ```console
@@ -64,7 +64,7 @@ cp tweet_streamer/example.properties tweet_streamer/gradle.properties
 * Alternatively you can utilize the Gradle integration in your favorite IDE/Editor.
 
 ## Run
-* Requies JDK8
+* Requires JDK8
 1. [Build](#build) the project
 2. Run the following via the terminal
 
