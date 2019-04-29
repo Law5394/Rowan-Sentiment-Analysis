@@ -17,6 +17,7 @@
 - [Features](#features)
 - [API](#API)
 - [Build](#build)
+- [Run](#run)
 - [License](#license)
 
 ## Introduction
@@ -43,6 +44,37 @@ through interactive visualizations.
 ## API
 
 ## Build
-todo
+* Requies JDK8
+
+1. Run the following via the terminal
+```console
+# Clone and cd into the repo
+git clone https://github.com/Law5394/Rowan-Sentiment-Analysis && cd Rowan-Sentiment-Analysis
+
+# Make an application.properties file and provide it with the required credentials
+cp server/src/main/resources/example.properties \
+server/src/main/resources/application.properties
+
+# Make a gradle.properties file and provide it with the required credentials
+cp tweet_streamer/example.properties tweet_streamer/gradle.properties
+
+# Build the project
+./gradlew build 
+```
+* Alternatively you can utilize the Gradle integration in your favorite IDE/Editor.
+
+## Run
+* Requies JDK8
+1. [Build](#build) the project
+2. Run the following via the terminal
+
+```console
+# Run the server subproject
+./gradlew bootRun     
+
+# Run the tweet_streamer subproject
+./tweet_streamer/build/deployable/tweet_streamer 
+```
+* Alternatively you can utilize the Gradle integration in your favorite IDE/Editor.
 ## License
 This project is licensed under GNU General Public License version 3 (https://opensource.org/licenses/gpl-3.0.html)
