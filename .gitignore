@@ -18,6 +18,7 @@
 *.iml
 *.ipr
 /out/
+*/*.iml
 
 ### NetBeans ###
 /nbproject/private/
@@ -28,3 +29,8 @@
 
 src/*/resources/application.properties
 */src/*/resources/application.properties
+
+### Tweet Streamers ###
+tweet_streamer/src/tweet_streamer.egg-info
+*/activate
+*/pinned.txt

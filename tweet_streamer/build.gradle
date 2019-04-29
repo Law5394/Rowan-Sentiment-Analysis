@@ -1,0 +1,25 @@
+plugins {
+    id "com.linkedin.python-cli" version "0.9.9"
+}
+
+dependencies {
+    python 'pypi:tweepy:3.7.0'
+    python 'pypi:requests:2.9.1'
+}
+
+buildPex.enabled = false
+
+repositories {
+    pyGradlePyPi()
+
+    def repoLocation = projectDir.toString() + '/repository/';
+
+    ivy {
+        name 'pypi-local'
+        url repoLocation
+        layout 'pattern', {
+            artifact '[organisation]/[module]/[revision]/[artifact]-[revision](-[classifier]).[ext]'
+            ivy '[organisation]/[module]/[revision]/[module]-[revision].ivy'
+        }
+    }
+}
