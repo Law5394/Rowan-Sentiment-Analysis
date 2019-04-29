@@ -4,7 +4,7 @@ from tweepy import Stream
 import json
 import requests
 
-import twitter_credentials
+import props
 
 
 class StdOutListener(StreamListener):
@@ -47,13 +47,13 @@ class StdOutListener(StreamListener):
         print(status)
 
 
-if __name__ == "__main__":
-
+def main():
+    print("Starting tweet stream listener")
     listener = StdOutListener()
-    auth = OAuthHandler(twitter_credentials.CONSUMER_KEY,
-                        twitter_credentials.CONSUMER_SECRET)
-    auth.set_access_token(twitter_credentials.ACCESS_TOKEN,
-                          twitter_credentials.ACESS_SECRET)
+    auth = OAuthHandler(props.CONSUMER_KEY,
+                        props.CONSUMER_SECRET)
+    auth.set_access_token(props.ACCESS_TOKEN,
+                          props.ACCESS_SECRET)
 
     stream = Stream(auth, listener)
     stream.filter(track=['#rowan, #rowanproud', '@RowanUniversity',
@@ -61,3 +61,8 @@ if __name__ == "__main__":
                          '@RowanAlumni', '#RowanAlumni', 'Rowan Advisory',
                          '@RowanGlobal', '@RowanAthletics', '@RowanCampusRec',
                          '#HumansOfRowan', '@RowanNews'])
+
+
+if __name__ == "__main__":
+    print("This is not printed when run with PEX ...")
+    main()

@@ -34,3 +34,10 @@ src/*/resources/application.properties
 tweet_streamer/src/tweet_streamer.egg-info
 */activate
 */pinned.txt
+
+
+### Config file ###
+gradle.properties
+*/gradle.properties
+*/application.properties
+tweet_streamer/src/tweet_streamer/props.py

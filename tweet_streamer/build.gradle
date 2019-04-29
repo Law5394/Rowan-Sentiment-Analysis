@@ -7,7 +7,29 @@ dependencies {
     python 'pypi:requests:2.9.1'
 }
 
-buildPex.enabled = false
+version = '0.0.1'
+
+task placeProps {
+	doLast {
+        new File("$projectDir/src/tweet_streamer/props.py").text = """
+CONSUMER_KEY = \"$CONSUMER_KEY\"
+CONSUMER_SECRET = \"$CONSUMER_SECRET\"
+ACCESS_TOKEN = \"$ACCESS_TOKEN\"
+ACCESS_SECRET = \"$ACCESS_SECRET\"
+"""
+	}
+    }
+
+task checkProps {
+        doFirst {
+          if (!new File("tweet_streamer/gradle.properties").exists()) {
+            println "gradle.properties does not exist"
+          }
+      }
+    }
+
+build.dependsOn(checkProps)
+build.dependsOn(placeProps)
 
 repositories {
     pyGradlePyPi()

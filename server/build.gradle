@@ -9,15 +9,21 @@ group = 'edu.rowan'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
-task checkProps {
-    doFirst {
-        String home = System.getenv('SPRING_PROFILES_ACTIVE');
+allprojects {
+    repositories {
+        mavenCentral()
+    }
 
-        if (home == null &&
-                !new File("server/src/main/resources/application.properties").exists()) {
+    task checkProps {
+      doFirst {
+          String home = System.getenv('SPRING_PROFILES_ACTIVE');
+
+          if (home == null &&
+            !new File("server/src/main/resources/application.properties").exists()) {
 
             throw new GradleException("application.properties does not exist")
-        }
+          }
+      }
     }
 }
 
@@ -27,6 +33,13 @@ test.dependsOn(checkProps)
 
 repositories {
     mavenCentral()
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+
 }
 
 dependencies {
