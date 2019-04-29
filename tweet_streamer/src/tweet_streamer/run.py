@@ -32,7 +32,7 @@ class StdOutListener(StreamListener):
         return payload
 
     def post_to_lambda(self, payload):
-        url = 'lamndaEndPointUrl'
+        url = props.LAMBDA_ENDPOINT
         requests.post(url, data=json.dumps(payload))
 
         return True
