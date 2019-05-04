@@ -35,21 +35,13 @@ repositories {
     mavenCentral()
 }
 
-allprojects {
-    repositories {
-        mavenCentral()
-    }
-
-}
-
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-logging'
-    runtimeOnly 'mysql:mysql-connector-java'
-    implementation 'org.twitter4j:twitter4j:4.0.7'
-
     implementation 'com.amazonaws:aws-java-sdk-comprehend:1.11.538'
+
+    runtimeOnly 'mysql:mysql-connector-java'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

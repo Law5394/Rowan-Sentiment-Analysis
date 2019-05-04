@@ -10,7 +10,6 @@ import org.slf4j.LoggerFactory;
  * The Entry point of the application.
  * Instantiates services and injects dependencies
  * */
-@EnableScheduling
 @SpringBootApplication
 public class RowanSentimentAnalysisApplication {
 
