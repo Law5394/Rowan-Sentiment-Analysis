@@ -39,6 +39,10 @@ public class TweetReceiveController {
     }
 
     class RawTweet {
+
+        public RawTweet() {
+        };
+
         @JsonProperty("tweet_id")
         private long tweetId;
         @JsonProperty("date")
@@ -49,5 +53,45 @@ public class TweetReceiveController {
         private String userId;
         @JsonProperty("user_screen_name")
         private String userScreenName;
+
+        public long getTweetId() {
+            return tweetId;
+        }
+
+        public void setTweetId(long tweetId) {
+            this.tweetId = tweetId;
+        }
+
+        public String getDate() {
+            return date;
+        }
+
+        public void setDate(String date) {
+            this.date = date;
+        }
+
+        public String getText() {
+            return text;
+        }
+
+        public void setText(String text) {
+            this.text = text;
+        }
+
+        public String getUserId() {
+            return userId;
+        }
+
+        public void setUserId(String userId) {
+            this.userId = userId;
+        }
+
+        public String getUserScreenName() {
+            return userScreenName;
+        }
+
+        public void setUserScreenName(String userScreenName) {
+            this.userScreenName = userScreenName;
+        }
     }
 }
