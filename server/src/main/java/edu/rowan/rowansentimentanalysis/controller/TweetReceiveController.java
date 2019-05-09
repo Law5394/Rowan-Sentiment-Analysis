@@ -30,7 +30,7 @@ public class TweetReceiveController {
     }
 
 
-    @RequestMapping(value = "/api/tweet",
+    @RequestMapping(value = "/tweet",
             method = POST, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     @ResponseBody
     public List<AnalyzedTweet> getBySentiment(@RequestBody RawTweet rawTweet) {
