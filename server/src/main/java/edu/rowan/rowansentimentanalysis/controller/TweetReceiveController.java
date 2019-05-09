@@ -45,9 +45,13 @@ public class TweetReceiveController {
     public Boolean getBySentiment(@RequestBody RawTweet rawTweet) {
         log.info("pos request: /api/tweet -> " + rawTweet.getText());
 
-        final Sentiment sentiment =
-                this.sentimentAnalysisService.analyzeSingleSentiment(Locale.ENGLISH, rawTweet.getText());
+        final Sentiment sentiment = this.sentimentAnalysisService.analyzeSingleSentiment(Locale.ENGLISH, rawTweet.getText());
+
+        log.info(String.format("Tweet Text: %s -> %s%n", rawTweet.getText(), sentiment.getSentiment()));
+
         this.analyzedTweetService.saveAnalyzedTweet(new AnalyzedTweet(rawTweet, sentiment));
+
+
         return true;
     }
 }
