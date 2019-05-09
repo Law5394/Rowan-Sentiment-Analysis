@@ -20,7 +20,7 @@ public class UtilController {
   private static final Logger log = LoggerFactory.getLogger(UtilController.class);
 
   // test if the api is up
-  @RequestMapping(value = "/util/test", method = RequestMethod.GET, produces = "application/json")
+  @RequestMapping(value = "/util/test", method = RequestMethod.GET, produces = "text/plain")
   public String testApi() {
     log.info("/util/test/ called");
     return "up";
