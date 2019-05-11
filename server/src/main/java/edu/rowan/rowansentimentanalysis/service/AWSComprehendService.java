@@ -77,7 +77,7 @@ public class AWSComprehendService implements SentimentAnalysisService {
                 .withTextList(textList))
                 .getResultList()
                 .stream()
-                .map(res -> new Sentiment(res.getSentiment(), res.getSentimentScore()))
+                .map(res ->  new Sentiment(res.getSentiment(), res.getSentimentScore()))
                 .collect(Collectors.toList());
     }
 }

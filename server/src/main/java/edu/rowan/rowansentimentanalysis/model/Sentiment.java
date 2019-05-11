@@ -5,19 +5,15 @@ package edu.rowan.rowansentimentanalysis.model;
  * */
 
 import com.amazonaws.services.comprehend.model.SentimentScore;
+import edu.rowan.rowansentimentanalysis.SentimentKind;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Sentiment {
+import java.io.Serializable;
+
+public class Sentiment implements Serializable {
 
     private static final Logger log = LoggerFactory.getLogger(Sentiment.class);
-
-    enum SentimentKind {
-        POSITIVE,
-        NEGATIVE,
-        NEUTRAL,
-        UNKNOWN
-    }
 
     private SentimentKind sentiment;
     private SentimentScore score;

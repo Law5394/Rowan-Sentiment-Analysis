@@ -1,8 +1,13 @@
 package edu.rowan.rowansentimentanalysis.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class RawTweet implements Serializable {
 
@@ -11,16 +16,28 @@ public class RawTweet implements Serializable {
 
     @JsonProperty("tweet_id")
     private long tweetId;
+
+    //@DateTimeFormat(iso = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"))
+
     @JsonProperty("date")
-    private String date;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+    private LocalDateTime date;
     @JsonProperty("text")
     private String text;
     @JsonProperty("user_id")
-    private String userId;
+    private Integer userId;
     @JsonProperty("user_screen_name")
     private String userScreenName;
 
-    public RawTweet(long tweetId, String date, String text, String userId, String userScreenName) {
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
+
+    public RawTweet(long tweetId, LocalDateTime date, String text, Integer userId, String userScreenName) {
         this.tweetId = tweetId;
         this.date = date;
         this.text = text;
@@ -36,14 +53,6 @@ public class RawTweet implements Serializable {
         this.tweetId = tweetId;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
     public String getText() {
         return text;
     }
@@ -52,11 +61,11 @@ public class RawTweet implements Serializable {
         this.text = text;
     }
 
-    public String getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
@@ -67,4 +76,5 @@ public class RawTweet implements Serializable {
     public void setUserScreenName(String userScreenName) {
         this.userScreenName = userScreenName;
     }
+
 }

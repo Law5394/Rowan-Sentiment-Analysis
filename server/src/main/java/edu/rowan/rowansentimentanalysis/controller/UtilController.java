@@ -15,12 +15,13 @@ import java.util.Date;
  * so can call log.info() to print log text
  * */
 @RestController
+@RequestMapping("/util")
 public class UtilController {
 
   private static final Logger log = LoggerFactory.getLogger(UtilController.class);
 
   // test if the api is up
-  @RequestMapping(value = "/util/test", method = RequestMethod.GET, produces = "text/plain")
+  @RequestMapping(value = "/test", method = RequestMethod.GET, produces = "text/plain")
   public String testApi() {
     log.info("/util/test/ called");
     return "up";
@@ -28,7 +29,7 @@ public class UtilController {
 
   // check when the api was last updated
   // TODO implement this
-  @RequestMapping(value = "/util/lastUpdate", method = RequestMethod.GET, produces = "application/json")
+  @RequestMapping(value = "/lastUpdate", method = RequestMethod.GET, produces = "application/json")
   public Date lastUpdated() {
     log.info("/util/lastUpdate/ called");
     // this.processingService.getTimeLastUpdated();
