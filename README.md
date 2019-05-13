@@ -22,12 +22,10 @@
 
 ## Introduction
 [![Total Downloads](https://travis-ci.org/Law5394/Rowan-Sentiment-Analysis.svg?branch=master)](https://travis-ci.org/Law5394/Rowan-Sentiment-Analysis) 
-[![Website todo](https://img.shields.io/website-up-down-green-red/http/todo.svg)](http://todo/)
+[![Website todo](https://img.shields.io/website-up-down-green-red/http/todo.svg)](http://www.rowansentiment.com/)
 [![GitHub license](https://img.shields.io/github/license/Law5394/Rowan-Sentiment-Analysis.svg)](https://github.com/Law5394/Rowan-Sentiment-Analysis/blob/master/LICENSE)
-[![GitHub release](https://img.shields.io/github/release/Law5394/Rowan-Sentiment-Analysis.svg)](https://GitHub.com/Law5394/Rowan-Sentiment-Analysis/releases/)  
 
-Sentiment analysis (also known as opinion mining or emotion AI) refers to the use of natural language processing, text analysis, computational linguistics, and biometrics to systematically identify, extract, quantify, and study affective states and subjective information. We at team *TODO* empower our users by providing near real-time sentiment analysis, accessible via API or
-through interactive visualizations.
+Sentiment analysis (also known as opinion mining or emotion AI) refers to the use of natural language processing, text analysis, computational linguistics, and biometrics to systematically identify, extract, quantify, and study affective states and subjective information. We empower our users by providing near real-time sentiment analysis, accessible via API or through interactive visualizations.
   
 ## Features
 - [x] Is a "fairly" unique idea
@@ -39,7 +37,6 @@ through interactive visualizations.
 - [x] Looks nice
 - [x] has a RESTful API
 - [x] uses MVC
-- [ ] must be presented in front of the class on the day of the final.
 
 ## API
 
