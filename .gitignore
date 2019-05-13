@@ -41,3 +41,27 @@ gradle.properties
 */gradle.properties
 */application.properties
 tweet_streamer/src/tweet_streamer/props.py
+
+
+### Ignores for frontend subprojec ###
+frontend/.DS_Store
+frontend/node_modules/*
+frontend/dist
+
+# local env files
+frontend/.env.local
+frontend/.env.*.local
+
+# Log files
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# Editor directories and files
+frontend/.idea
+frontend/.vscode
+frontend/*.suo
+frontend/*.ntvs*
+frontend/*.njsproj
+frontend/*.sln
+frontend/*.sw?
