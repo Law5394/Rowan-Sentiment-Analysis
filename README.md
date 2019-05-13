@@ -22,7 +22,7 @@
 
 ## Introduction
 [![Total Downloads](https://travis-ci.org/Law5394/Rowan-Sentiment-Analysis.svg?branch=master)](https://travis-ci.org/Law5394/Rowan-Sentiment-Analysis) 
-[![Website todo](https://img.shields.io/website-up-down-green-red/http/todo.svg)](http://www.rowansentiment.com/)
+[![Website todo](https://img.shields.io/website-up-down-green-red/http/rowansentiment.com.svg)](http://www.rowansentiment.com/)
 [![GitHub license](https://img.shields.io/github/license/Law5394/Rowan-Sentiment-Analysis.svg)](https://github.com/Law5394/Rowan-Sentiment-Analysis/blob/master/LICENSE)
 
 Sentiment analysis (also known as opinion mining or emotion AI) refers to the use of natural language processing, text analysis, computational linguistics, and biometrics to systematically identify, extract, quantify, and study affective states and subjective information. We empower our users by providing near real-time sentiment analysis, accessible via API or through interactive visualizations.
